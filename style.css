@@ -386,7 +386,7 @@
 
 /* Explore Our Products Section */
 .products {
-  background-color: var(--dark-blue); /* dark blue background */
+  background-color: var(--dark-blue); 
   padding: 60px 20px;
   text-align: center;
 }
@@ -394,7 +394,7 @@
 .products .section-title h2 {
   font-size: 36px;
   margin-bottom: 40px;
-  color: var(--white); /* white text for contrast */
+  color: var(--white); 
   font-family: 'Poppins', sans-serif;
 }
 
@@ -500,3 +500,82 @@
     min-width: 80%;
   }
 }
+
+/* Ready to Get Started Section */
+.get-started {
+  background-color: var(--white);
+  text-align: center;
+  padding: 80px 20px;
+  position: relative;
+}
+
+.get-started h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: var(--black);
+  font-family: 'Poppins', sans-serif;
+}
+
+.get-started p {
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  color: var(--black);
+}
+
+/* Buttons container */
+.get-started-btns {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* spacing between buttons */
+  flex-wrap: wrap;
+}
+
+/* All buttons solid red */
+.get-started-btns .btn {
+  background-color: var(--red);
+  color: var(--white);
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  /* make all buttons the same width */
+  min-width: 180px;  
+  text-align: center;
+}
+
+/* Hover effect without tilt */
+.get-started-btns .btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
+}
+
+/* Outline button (but same red style) */
+.get-started-btns .btn.btn-outline {
+  background-color: var(--red);
+  border: none;
+  color: var(--white);
+}
+
+
+/* Responsive */
+@media (max-width: 600px) {
+  .get-started-btns {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .get-started h2 {
+    font-size: 28px;
+  }
+
+  .get-started p {
+    font-size: 16px;
+  }
+}
+
