@@ -1,3 +1,4 @@
+/* Global Styles */
 :root {
   --blue: #0000FF;
   --red: #cc0000;  
@@ -5,6 +6,87 @@
   --green: #00FF99;
    --black: #000000;
   --white: #FFFFFF;
+}
+
+/* Navbar Style */
+
+/* Navbar container */
+.nav-container {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;            
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Logo container */
+.logo {
+  display: flex;
+  align-items: center;  
+  gap: 10px;            
+  font-family: 'Poppins', sans-serif; 
+  font-weight: bold;
+  font-size: 24px;
+  color: var(--white);
+}
+
+/* Logo image */
+.logo img {
+  height: 70px;       /* increase height for better clarity */
+  width: auto;        /* maintain aspect ratio */
+  object-fit: contain; 
+}
+
+/* Optional: add subtle shadow to logo image for better clarity */
+.logo img {
+  filter: brightness(1.1); 
+}
+/* Nav links */
+.nav-links {
+    list-style: none; 
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+/* Nav links */
+.nav-links li a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
+    font-family: 'Poppins', sans-serif; 
+    font-size: 16px; 
+}
+
+.nav-links li a:hover {
+    border-bottom: 2px solid var(--blue); 
+    transform: translateY(-2px); 
+}
+
+/* Active/focus effect: underline */
+.nav-links li a.active,
+.nav-links li a:focus {
+    border-bottom: 2px solid var(--red); 
+    transform: translateY(-2px);
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    margin-top: 10px;
+  }
 }
 
 /* Hero Section */
