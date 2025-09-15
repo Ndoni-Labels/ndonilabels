@@ -1,0 +1,152 @@
+:root {
+  --blue: #0000FF;
+  --red: #cc0000;  
+  --dark-blue: #1e2061; 
+  --green: #00FF99;
+   --black: #000000;
+  --white: #FFFFFF;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 120px 20px;
+  color: var(--black); /* text in hero section */
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.4),  
+      rgba(255, 255, 255, 0.4)
+    ),
+    url('./assets/Ndonihero1.jpg') no-repeat center center/cover;
+  filter: blur(1px);
+  z-index: -1;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: var(--black);
+  position: relative;
+  z-index: 1;
+}
+
+.hero p {
+  font-size: 20px;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  color: var(--black);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-btns {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero Buttons */
+.hero-btns .btn {
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--white); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Get Free Quote (dark blue) */
+.hero-btns .btn:first-child {
+  background-color: var(--dark-blue);
+  border: none;
+}
+
+.hero-btns .btn:first-child:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 153, 0.4);
+}
+
+/* View Products (red button) */
+.hero-btns .btn.btn-outline {
+  background-color: var(--red);
+  border: none;
+}
+
+.hero-btns .btn.btn-outline:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
+}
+
+/* Why Choose Us Section */
+.why-choose-us {
+  background-color: var(--dark-blue); 
+  padding: 80px 20px;
+  text-align: center;
+  color: #fff; 
+}
+
+.why-choose-us .section-title h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #fff; 
+}
+
+.why-choose-us .section-title p {
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  color: #fff; 
+}
+
+.why-choose-us .features {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap; 
+}
+
+.why-choose-us .feature {
+  background: var(--red); 
+  border-radius: 15px;
+  padding: 30px 20px;
+  width: 280px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.why-choose-us .feature i {
+  font-size: 40px;
+  color: #fff; 
+  margin-bottom: 15px;
+}
+
+.why-choose-us .feature h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #fff; 
+}
+
+.why-choose-us .feature p {
+  font-size: 16px;
+  color: #fff; 
+}
+
+/* Fun hover effect */
+.why-choose-us .feature:hover {
+  transform: translateY(-8px) scale(1.05);
+  background:#FF0000;
+}
+
