@@ -232,3 +232,154 @@
   background:#FF0000;
 }
 
+/* Services Section */
+.services {
+  background-color: var(--white);
+  padding: 80px 20px; 
+  text-align: center;
+}
+
+.services .section-title h2 {
+  font-size: 36px; 
+  margin-bottom: 10px; 
+  color: var(--black);
+  font-family: 'Poppins', sans-serif;
+}
+
+.services .section-title p {
+  font-size: 16px;
+  color: var(--black);
+  margin-bottom: 40px; 
+}
+
+/* Grid layout for cards */
+.services-grid {
+  display: flex;
+  justify-content: center;
+  gap: 50px; 
+  flex-wrap: wrap;
+}
+
+/* Service card */
+.service-card {
+  display: flex;
+  flex: 0 0 45%; 
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  align-items: center; /* vertically center text next to image */
+}
+
+/* School Labels card */
+.service-card.school {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+/* Business Labels card */
+.service-card.business {
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
+
+/* Image inside card */
+.service-card img {
+  width: 50%; 
+  height: 100%; 
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+/* Text content next to image */
+.service-content {
+  width: 50%; 
+  padding: 20px 25px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  text-align: left;
+}
+
+.service-content h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.service-content p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.service-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.service-list li {
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.service-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--white);
+}
+
+/* Buttons */
+.service-card.school .btn-primary {
+  background-color: var(--dark-blue);
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.service-card.school .btn-primary:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,153,0.4);
+}
+
+.service-card.business .btn-primary {
+  background-color: var(--red);
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.service-card.business .btn-primary:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 15px rgba(255,0,0,0.4);
+}
+
+/* Image hover animation */
+.service-card img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Responsive: stack image and text vertically on small screens */
+@media (max-width: 900px) {
+  .service-card {
+    flex-direction: column;
+    flex: 1 1 100%;
+  }
+  .service-card img, .service-content {
+    width: 100%;
+  }
+  .service-content {
+    text-align: center;
+    padding: 15px;
+  }
+}
