@@ -1,555 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Ndoni Labels</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="./assets/Logo.jpg">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --white: #ffffff;
-            --dark-blue: #1a237e;
-            --blue: #3f51b5;
-            --green: #4caf50;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation */
-        nav {
-            background-color: var(--white);
-            padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 50px;
-            width: auto;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark-blue);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--blue);
-        }
-
-        /* About Section */
-        .about {
-            background-color: var(--white);
-            padding: 80px 0;
-        }
-
-        .about-content {
-           display: grid;
-           grid-template-columns: 1fr 1fr; /* two equal columns */
-           gap: 60px;
-           margin-bottom: 50px;
-           align-items: start; 
-        }
-
-        .about-text h2 {
-            font-size: 36px;
-            margin-bottom: 10px;
-            color: var(--dark-blue);
-            font-weight: 700;
-        }
-
-        .about-text > p {
-            font-size: 16px;
-            line-height: 1.7;
-            margin-bottom: 20px;
-            color: #666;
-        }
-
-        /* Stats section - By the Numbers */
-        .stats-section {
-            margin: 0;
-        }
-
-        .stats-title {
-            font-size: 24px;
-            color: var(--dark-blue);
-            margin-bottom: 30px;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .stat-item {
-            background-color: var(--dark-blue);
-            color: var(--white);
-            padding: 30px 20px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-
-        .stat-number {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .stat-label {
-            font-size: 14px;
-            font-weight: 400;
-        }
-
-        /* Values section */
-        .values-section {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            position: relative;
-        }
-
-        .values-title {
-            font-size: 32px;
-            color: #333;
-            margin-bottom: 10px;
-            font-weight: 700;
-            text-align: center;
-        }
-
-        .values-subtitle {
-            font-size: 16px;
-            color: #666;
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .values-container {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Central connecting line */
-        .values-container::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background-color: var(--dark-blue);
-            transform: translateX(-50%);
-            z-index: 1;
-        }
-
-        .values-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            gap: 60px;
-        }
-
-        .values-row:nth-child(2) {
-            margin-top: 30px;
-        }
-
-        /* Diamond shapes on the line */
-        .values-row::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            width: 12px;
-            height: 12px;
-            background-color: var(--dark-blue);
-            transform: translateX(-50%) translateY(-50%) rotate(45deg);
-            z-index: 2;
-        }
-
-        .value-card {
-            background-color: var(--dark-blue);
-            color: var(--white);
-            padding: 25px;
-            border-radius: 0;
-            position: relative;
-            width: 300px;
-            min-height: 120px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .value-card.left {
-            border-top-left-radius: 25px;
-            border-bottom-left-radius: 25px;
-            border-top-right-radius: 50px;
-            border-bottom-right-radius: 50px;
-        }
-
-        .value-card.right {
-            border-top-right-radius: 25px;
-            border-bottom-right-radius: 25px;
-            border-top-left-radius: 50px;
-            border-bottom-left-radius: 50px;
-        }
-
-        .value-card h4 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--white);
-        }
-
-        .value-card p {
-            font-size: 14px;
-            line-height: 1.5;
-            color: rgba(255,255,255,0.95);
-        }
-
-        /* Commitment Section */
-        .commitment-section {
-            background-color: var(--dark-blue);
-            color: var(--white);
-            padding: 60px 0;
-            margin-top: 50px;
-        }
-
-        .commitment-section h3 {
-            font-size: 32px;
-            text-align: center;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .commitment-subtitle {
-            text-align: center;
-            font-size: 16px;
-            margin-bottom: 40px;
-            color: rgba(255,255,255,0.9);
-        }
-
-        .commitment-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .commitment-card {
-            background-color: #d32f2f;
-            padding: 30px 25px;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .commitment-card h4 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .commitment-card p {
-            font-size: 14px;
-            line-height: 1.6;
-            color: rgba(255,255,255,0.95);
-        }
-
-        /* Reviews Section */
-        .reviews {
-            background-color: #f8f9fa;
-            padding: 80px 0;
-        }
-
-        .reviews h2 {
-            font-size: 36px;
-            color: var(--dark-blue);
-            text-align: center;
-            margin-bottom: 50px;
-            font-weight: 700;
-        }
-
-        .review-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .review-card {
-            background-color: #fff;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .review-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-        }
-
-        .reviewer {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .reviewer-avatar {
-            width: 50px;
-            height: 50px;
-            background-color: var(--blue);
-            border-radius: 50%;
-        }
-
-        .reviewer h4 {
-            font-size: 16px;
-            margin: 0;
-            color: var(--dark-blue);
-            font-weight: 600;
-        }
-
-        .stars {
-            color: #FFD700;
-            font-size: 14px;
-            margin-top: 2px;
-        }
-
-        .review-card p {
-            font-size: 14px;
-            color: #555;
-            line-height: 1.6;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-            .values-container::before {
-                display: none;
-            }
-
-            .values-row {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .values-row::before {
-                display: none;
-            }
-
-            .value-card {
-                width: 100%;
-            }
-
-            .value-card.left,
-            .value-card.right {
-                border-radius: 15px;
-            }
-
-            .commitment-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .nav-links {
-                display: none;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Ndoni Labels</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="./assets/Logo.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo"><a href="index.html"><img src="./assets/Logo.jpg" alt="NDONI Logo"></a></div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
- 
-    <!-- About Section -->
-    <!-- About Section -->
-<section class="about" id="about">
-  <div class="container">
-    <div class="about-content">
-      <!-- Left side: Our Story -->
-      <div class="about-text">
-        <h2>Our Story</h2>
-        <p>Founded in 2014, Ndoni began with a simple mission: to provide high-quality labeling solutions for schools and businesses at competitive prices. What started as a small local operation has grown into a trusted partner for hundreds of organizations.</p>
-        <p>Over the years, we've invested in state-of-the-art printing equipment and built a team of experienced professionals who share our commitment to excellence. From classroom name tags to complex barcode systems, we bring precision and attention to detail that our customers have come to expect.</p>
-        <p>Today, LabelCraft continues to evolve, embracing new technologies while maintaining the personal service and attention to detail that our customers have come to expect.</p>
-      </div>
-
-      <!-- Right side: By the Numbers -->
-      <div class="stats-section">
-        <h3 class="stats-title">By the Numbers</h3>
-        <div class="stats">
-          <div class="stat-item">
-            <div class="stat-number">+2</div>
-            <div class="stat-label">Years in Business</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">150+</div>
-            <div class="stat-label">Happy Clients</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">200+</div>
-            <div class="stat-label">Orders Completed</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">24hr</div>
-            <div class="stat-label">Average Turnaround</div>
-          </div>
-        </div>
-      </div>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo"><a href="index.html"><img src="./assets/Logo.jpg" alt="NDONI Logo"></a></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <!-- Our Values BELOW -->
-    <div class="values-section">
-      <h3 class="values-title">Our Values</h3>
-      <p class="values-subtitle">The principles that guide everything we do</p>
-      <div class="values-container">
-        <div class="values-row">
-          <div class="value-card left">
-            <h4>Quality First</h4>
-            <p>We never compromise on quality - every label meets our high standards before leaving our facility.</p>
-          </div>
-          <div class="value-card right">
-            <h4>Reliable Service</h4>
-            <p>Consistent delivery times and dependable service you can count on for your important projects.</p>
-          </div>
+  <!-- Hero Section -->
+  <section id="home" class="hero about-hero">
+    <div class="container">
+      <h1>About Ndoni</h1>
+      <h2>Your trusted partner in professional printing solutions since 2014</h2>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-content">
+        <!-- Left side: Our Story -->
+        <div class="about-text">
+          <h2>Our Story</h2>
+          <p>Founded in 2014, Ndoni began with a simple mission: to provide high-quality labeling solutions for schools
+            and businesses at competitive prices. What started as a small local operation has grown into a trusted
+            partner for hundreds of organizations.</p>
+          <p>Over the years, we've invested in state-of-the-art printing equipment and built a team of experienced
+            professionals who share our commitment to excellence. From classroom name tags to complex barcode systems,
+            we bring precision and attention to detail that our customers have come to expect.</p>
+          <p>Today, LabelCraft continues to evolve, embracing new technologies while maintaining the personal service
+            and attention to detail that our customers have come to expect.</p>
         </div>
-        <div class="values-row">
-          <div class="value-card left">
-            <h4>Customer Focus</h4>
-            <p>Your success is our priority. We work closely with you to achieve the perfect solution.</p>
-          </div>
-          <div class="value-card right">
-            <h4>Innovation</h4>
-            <p>We stay ahead with the latest printing technology and techniques for superior results.</p>
+
+        <!-- Right side: By the Numbers -->
+        <div class="stats-section">
+          <h3 class="stats-title">By the Numbers</h3>
+          <div class="stats">
+            <div class="stat-item">
+              <div class="stat-number">+2</div>
+              <div class="stat-label">Years in Business</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">150+</div>
+              <div class="stat-label">Happy Clients</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">200+</div>
+              <div class="stat-label">Orders Completed</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">24hr</div>
+              <div class="stat-label">Average Turnaround</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-    <!-- Commitment Section -->
-    <section class="commitment-section">
-        <div class="container">
-            <h3>Our Commitment</h3>
-            <p class="commitment-subtitle">At Ndoni, we're committed to being more than just your printing service. We're your partners in success, dedicated to helping your organization look professional and stay organized.</p>
-            <div class="commitment-grid">
-                <div class="commitment-card">
-                    <h4>Schools & Education</h4>
-                    <p>We understand the unique needs of educational institutions and provide solutions that help teachers stay organized and students feel engaged.</p>
-                </div>
-                <div class="commitment-card">
-                    <h4>Small Businesses</h4>
-                    <p>From startups to established businesses, we help you maintain a professional image with high-quality labeling solutions that grow with you.</p>
-                </div>
-                <div class="commitment-card">
-                    <h4>Large Organizations</h4>
-                    <p>We have the capacity and experience to handle large-scale projects while maintaining the personal service of a boutique provider.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+      <!-- Our Values BELOW -->
+      <section class="values-section">
+        <h3 class="values-title">Our Values</h3>
+        <p class="values-subtitle">The principles that guide everything we do</p>
 
-    <!-- Reviews Section -->
-    <section class="reviews">
-        <div class="container">
-            <h2>Reviews & Ratings</h2>
-            <div class="review-grid">
-                <div class="review-card">
-                    <div class="reviewer">
-                        <div class="reviewer-avatar"></div>
-                        <div>
-                            <h4>Sarah Mbambo</h4>
-                            <div class="stars">★★★★★</div>
-                        </div>
-                    </div>
-                    <p>"Excellent service and high-quality labels. The team was very responsive and delivered exactly what we needed for our school. Highly recommended!"</p>
-                </div>
-                <div class="review-card">
-                    <div class="reviewer">
-                        <div class="reviewer-avatar"></div>
-                        <div>
-                            <h4>Kevin Naidoo</h4>
-                            <div class="stars">★★★★★</div>
-                        </div>
-                    </div>
-                    <p>"Great prices and fast turnaround time. The labels are durable and look professional. We've been using Indoni for over a year now."</p>
-                </div>
-                <div class="review-card">
-                    <div class="reviewer">
-                        <div class="reviewer-avatar"></div>
-                        <div>
-                            <h4>Thabo Mol</h4>
-                            <div class="stars">★★★★★</div>
-                        </div>
-                    </div>
-                    <p>"Outstanding quality and customer service. The team went above and beyond to ensure our labels were perfect. Will definitely use them again."</p>
-                </div>
+        <div class="timeline">
+          <div class="values-row">
+            <div class="value-card left">
+              <h4>Quality First</h4>
+              <p>We never compromise on quality. Every label meets our high standards before leaving our facility.</p>
             </div>
+            <div class="center-dot"></div>
+            <div class="value-card right">
+              <h4>Reliable Service</h4>
+              <p>Consistent delivery times and dependable service you can count on for your important projects.</p>
+            </div>
+          </div>
+
+          <div class="values-row">
+            <div class="value-card left">
+              <h4>Customer Focus</h4>
+              <p>Your success is our priority. We work closely with you to achieve the perfect solution.</p>
+            </div>
+            <div class="center-dot"></div>
+            <div class="value-card right">
+              <h4>Innovation</h4>
+              <p>We stay ahead with the latest printing technology and techniques for superior results.</p>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
+
+      <!-- Commitment Section -->
+      <section class="commitment-section">
+        <div class="container">
+          <h3>Our Commitment</h3>
+          <p class="commitment-subtitle">At Ndoni, we're committed to being more than just your printing service. We're
+            your partners in success, dedicated to helping your organization look professional and stay organized.</p>
+          <div class="commitment-grid">
+            <div class="commitment-card">
+              <h4>Schools & Education</h4>
+              <p>We understand the unique needs of educational institutions and provide solutions that help teachers
+                stay organized and students feel engaged.</p>
+            </div>
+            <div class="commitment-card">
+              <h4>Small Businesses</h4>
+              <p>From startups to established businesses, we help you maintain a professional image with high-quality
+                labeling solutions that grow with you.</p>
+            </div>
+            <div class="commitment-card">
+              <h4>Large Organizations</h4>
+              <p>We have the capacity and experience to handle large-scale projects while maintaining the personal
+                service of a boutique provider.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reviews Section -->
+      <section class="reviews">
+        <div class="container">
+          <h2>Reviews & Ratings</h2>
+          <div class="review-grid">
+            <div class="review-card">
+              <div class="reviewer">
+                <div class="reviewer-avatar"></div>
+                <div>
+                  <h4>Sarah Mbambo</h4>
+                  <div class="stars">★★★★★</div>
+                </div>
+              </div>
+              <p>"Excellent service and high-quality labels. The team was very responsive and delivered exactly what we
+                needed for our school. Highly recommended!"</p>
+            </div>
+            <div class="review-card">
+              <div class="reviewer">
+                <div class="reviewer-avatar"></div>
+                <div>
+                  <h4>Kevin Naidoo</h4>
+                  <div class="stars">★★★★★</div>
+                </div>
+              </div>
+              <p>"Great prices and fast turnaround time. The labels are durable and look professional. We've been using
+                Indoni for over a year now."</p>
+            </div>
+            <div class="review-card">
+              <div class="reviewer">
+                <div class="reviewer-avatar"></div>
+                <div>
+                  <h4>Thabo Mol</h4>
+                  <div class="stars">★★★★★</div>
+                </div>
+              </div>
+              <p>"Outstanding quality and customer service. The team went above and beyond to ensure our labels were
+                perfect. Will definitely use them again."</p>
+            </div>
+          </div>
+        </div>
+      </section>
 </body>
+
 </html>
