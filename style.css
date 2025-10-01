@@ -8,8 +8,6 @@
   --white: #FFFFFF;
 }
 
-/* Navbar Style */
-
 /* Navbar container */
 .nav-container {
   display: flex;
@@ -467,7 +465,6 @@
   top: 50%;
   transform: translateY(-50%);
   background-color: rgba(255, 255, 255, 0.3);
-  /* lighter arrows for visibility */
   color: var(--white);
   border: none;
   font-size: 24px;
@@ -649,15 +646,16 @@
 }
 
 .about-text h2 {
-  font-size: 36px;
+  font-size: 38px;
   margin-bottom: 10px;
   color: var(--black);
   font-weight: 700;
-  font-family: Arial, sans-serif;
+  font-family: 'Prompt', sans-serif;
 }
 
 .about-text>p {
-  font-size: 18px;
+  font-size: 22px;
+  font-weight: 400;   
   line-height: 1.7;
   margin-bottom: 20px;
   color: #000000;
@@ -719,12 +717,12 @@
 /* Values section */
 .values-section {
   text-align: center;
-  font-family: Arial, sans-serif;
+  font-family: Prompt, sans-serif;
   padding: 40px 20px;
 }
 
 .values-title {
-  font-size: 28px;
+  font-size: 38px;
   margin-bottom: 10px;
 }
 
@@ -855,13 +853,13 @@
 .commitment-section {
   background-color: var(--dark-blue);
   color: var(--white);
-  padding: 80px 0;
+  padding: 50px 0;
   margin-top: 50px;
 }
 
 .commitment-section h3 {
-  font-size: 32px;
-  font-family: Arial, sans-serif;
+  font-family: 'Prompt', sans-serif;
+  font-size: 38px; 
   text-align: center;
   margin-bottom: 20px;
   font-weight: 700;
@@ -869,15 +867,17 @@
 
 .commitment-subtitle {
   text-align: center;
-  font-size: 16px;
+   font-family: 'Prompt', sans-serif;
+  font-weight: 400;  
+  font-size: 18px;
   margin-bottom: 40px;
   color: rgba(255, 255, 255, 0.9);
 }
 
 .commitment-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* space between cards */
 }
 
 .commitment-card {
@@ -885,17 +885,19 @@
   padding: 35px 25px;
   border-radius: 12px;
   text-align: center;
-  font-family: Arial, sans-serif;
+  font-family: 'Prompt', sans-serif;
+  width: 350px;   /* fixed width */
+  min-height: 200px; 
 }
 
 .commitment-card h4 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .commitment-card p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.95);
 }
@@ -907,7 +909,9 @@
 }
 
 .reviews h2 {
-  font-size: 36px;
+  font-family: 'Prompt', sans-serif;
+  font-weight: 600;   
+  font-size: 38px;
   color: var(--dark-blue);
   text-align: center;
   margin-bottom: 50px;
@@ -921,10 +925,10 @@
 }
 
 .review-card {
-  background-color: #fff;
+  background-color: rgba(22, 179, 40, 0.17);
   border-radius: 15px;
   padding: 25px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 25px rgba(19, 188, 16, 0.285);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -943,8 +947,23 @@
 .reviewer-avatar {
   width: 50px;
   height: 50px;
-  background-color: var(--blue);
   border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Specific avatars */
+.avatar1 {
+  background-image: url('assets\profile1.png');
+}
+
+.avatar2 {
+  background-image: url('assets\profile2.png');
+}
+
+.avatar3 {
+  background-image: url('assets\profile3.png');
 }
 
 .reviewer h4 {
