@@ -3,23 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Ndoni Labels</title>
+    <title>Ndoni Labels Products</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="./assets/Logo.jpg">
+    <link rel="icon" type="image/x-icon" href="./assets/Logo t.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation -->
+     <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <div class="logo"><a href="index.html"><img src="./assets/Logo.jpg" alt="NDONI Logo"></a></div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
-                <li><a href="products.html">Products</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
+
+    <section class="hero-section">
+        <div class="hero-carousel">
+            <div class="hero-slide active" style="background-image: linear-gradient(rgba(30,32,97,0.3), rgba(30,32,97,0.3)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                <div class="hero-overlay">
+                    <h1>Our Products</h1>
+                    <p>Professional labels and stickers tailored for schools, businesses, and organizations.</p>
+                </div>
+            </div>
+            <div class="hero-slide" style="background-image: linear-gradient(rgba(30,32,97,0.3), rgba(30,32,97,0.3)), url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2022&q=80');">
+                <div class="hero-overlay">
+                    <h1>Education Solutions</h1>
+                    <p>Organize your classroom with our durable and colorful educational labels.</p>
+                </div>
+            </div>
+            <div class="hero-slide" style="background-image: linear-gradient(rgba(30,32,97,0.3), rgba(30,32,97,0.3)), url('https://images.unsplash.com/photo-1551836026-d5c8c1a7e61b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                <div class="hero-overlay">
+                    <h1>Business Excellence</h1>
+                    <p>Professional branding solutions for your commercial needs.</p>
+                </div>
+            </div>
+            <div class="hero-slide" style="background-image: linear-gradient(rgba(30,32,97,0.3), rgba(30,32,97,0.3)), url('https://images.unsplash.com/photo-1565688534245-05d6b5be184a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                <div class="hero-overlay">
+                    <h1>Awards & Recognition</h1>
+                    <p>Motivate and reward achievements with our premium sticker collections.</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-nav">
+            <div class="carousel-dot active" data-slide="0"></div>
+            <div class="carousel-dot" data-slide="1"></div>
+            <div class="carousel-dot" data-slide="2"></div>
+            <div class="carousel-dot" data-slide="3"></div>
+        </div>
+    </section>
+
+    <main class="product-page-main container">
+        <div class="search-section">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Search for name tags, business labels, awards, and more...">
+            </div>
+        </div>
+
+        <div class="products-flex-container">
+            <aside class="filter-sidebar">
+                <h2>Filter Products</h2>
+                <div class="filter-group">
+                    <h3>Primary Category</h3>
+                    <button class="filter-btn active" data-filter="all">All Products</button>
+                    <button class="filter-btn" data-filter="education">School & Education</button>
+                    <button class="filter-btn" data-filter="business">Business Solutions</button>
+                    <button class="filter-btn" data-filter="stickers">Stickers & Awards</button>
+                    <button class="filter-btn" data-filter="custom">Custom Products</button>
+                </div>
+                
+                <div class="filter-group school-label-filter hidden" id="schoolLabelFilter">
+                    <h3>School Label Type</h3>
+                    <button class="sub-filter-btn active" data-subfilter="all-school">All School Labels</button>
+                    <button class="sub-filter-btn" data-subfilter="name-tags">Name Tags</button>
+                    <button class="sub-filter-btn" data-subfilter="organization">Organization</button>
+                    <button class="sub-filter-btn" data-subfilter="safety">Safety/Emergency</button>
+                    <button class="sub-filter-btn" data-subfilter="books">Book/Library</button>
+                </div>
+
+                <div class="filter-group business-label-filter hidden" id="businessLabelFilter">
+                    <h3>Business Label Type</h3>
+                    <button class="sub-filter-btn active" data-subfilter="all-business">All Business Labels</button>
+                    <button class="sub-filter-btn" data-subfilter="product">Product Labels</button>
+                    <button class="sub-filter-btn" data-subfilter="shipping">Shipping Labels</button>
+                    <button class="sub-filter-btn" data-subfilter="branding">Branding Labels</button>
+                </div>
+
+                <div class="filter-group sticker-label-filter hidden" id="stickerLabelFilter">
+                    <h3>Sticker Type</h3>
+                    <button class="sub-filter-btn active" data-subfilter="all-stickers">All Stickers</button>
+                    <button class="sub-filter-btn" data-subfilter="awards">Achievement Awards</button>
+                    <button class="sub-filter-btn" data-subfilter="motivational">Motivational</button>
+                    <button class="sub-filter-btn" data-subfilter="decorative">Decorative</button>
+                </div>
+
+                <div class="filter-group custom-label-filter hidden" id="customLabelFilter">
+                    <h3>Custom Type</h3>
+                    <button class="sub-filter-btn active" data-subfilter="all-custom">All Custom</button>
+                    <button class="sub-filter-btn" data-subfilter="logo">Logo Stickers</button>
+                    <button class="sub-filter-btn" data-subfilter="promotional">Promotional</button>
+                    <button class="sub-filter-btn" data-subfilter="specialty">Specialty Items</button>
+                </div>
+            </aside>
+
+            <section class="products-display-area">
+                <h2 id="currentCategoryTitle">All Products</h2>
+                <p id="currentCategorySubtitle">Explore our complete range of professional labeling and sticker solutions.</p>
+
+                <div class="products-grid" id="mainProductsGrid">
+                    <!-- Products will be dynamically inserted here -->
+                </div>
+
+                <div id="noResults" class="no-results hidden">
+                    <i class="fas fa-box-open"></i>
+                    <h3>No Products Found</h3>
+                    <p>Try refining your search or selecting a different filter category.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Product Details Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-product-image">
+                <img id="modalProductImage" src="" alt="Product Image">
+            </div>
+            <div class="modal-product-info">
+                <h2 id="modalProductName">Product Name</h2>
+                <div id="modalProductDetails" class="modal-product-details">
+                    <!-- Product details will be inserted here -->
+                </div>
+                <div class="modal-buttons">
+                    <button class="modal-btn modal-btn-secondary" onclick="closeProductModal()">Close</button>
+                    <a href="contact.html" id="requestQuoteBtn" class="modal-btn modal-btn-primary">Request Quote</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="cta-section">
+        <div class="container cta-flex">
+            <div class="cta-item">
+                <h2>Need a Custom Quote?</h2>
+                <p>Contact our sales team today to discuss your specific bulk, custom, or large-scale labeling needs. We provide competitive pricing and fast turnaround times.</p>
+                <a href="contact.html" class="cta-btn primary-btn">Request a Quote <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="cta-item">
+                <h2>Explore the Full Range</h2>
+                <p>Download our comprehensive catalogue for a detailed look at all products, specifications, and pricing options available.</p>
+                <a href="#" class="cta-btn secondary-btn">Download Catalogue <i class="fas fa-download"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">Additional Services</h2>
+            <p class="section-subtitle">We go beyond printing to support your success</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-palette"></i></div>
+                    <h3 class="service-title">Custom Design Services</h3>
+                    <p class="service-description">Our professional design team creates custom labels and graphics that perfectly match your brand identity and vision.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-truck-loading"></i></div>
+                    <h3 class="service-title">Bulk Orders & Urgency</h3>
+                    <p class="service-description">Need a lot, fast? We offer competitive pricing for urgent orders and bulk purchases with guaranteed delivery times.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-tags"></i></div>
+                    <h3 class="service-title">Volume Discounts</h3>
+                    <p class="service-description">Get more value with our bulk discount tiers, making large orders more affordable for schools and businesses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="products.js"></script>
 </body>
 </html>
