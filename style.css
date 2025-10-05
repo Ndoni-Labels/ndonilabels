@@ -112,6 +112,79 @@ nav {
 }
 
 /* ============================= */
+/* BACK TO TOP BUTTON            */
+/* ============================= */
+/* Enhanced Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: var(--dark-blue);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  z-index: 999;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.back-to-top:hover {
+  background: var(--red);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ============================= */
+/* HERO ANIMATIONS               */
+/* ============================= */
+@keyframes dropDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ============================= */
 /* HOME PAGE - HERO SECTION      */
 /* ============================= */
 .hero {
@@ -146,8 +219,12 @@ nav {
   color: var(--black);
   position: relative;
   z-index: 1;
-  font-family: 'Prompt', sans-serif;
-  font-weight: 600;
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: dropDown 1s ease-out forwards;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
 .hero h2 {
@@ -173,6 +250,14 @@ nav {
   gap: 15px;
   position: relative;
   z-index: 1;
+  opacity: 0;
+  animation: fadeInButtons 0.6s ease-out 1s forwards;
+}
+
+@keyframes fadeInButtons {
+  to {
+    opacity: 1;
+  }
 }
 
 .hero-btns .btn {
@@ -189,6 +274,7 @@ nav {
 .hero-btns .btn:first-child {
   background-color: var(--dark-blue);
   border: none;
+  animation: slideInLeft 0.6s ease-out 1s both;
 }
 
 .hero-btns .btn:first-child:hover {
@@ -199,6 +285,7 @@ nav {
 .hero-btns .btn.btn-outline {
   background-color: var(--red);
   border: none;
+  animation: slideInRight 0.6s ease-out 1s both;
 }
 
 .hero-btns .btn.btn-outline:hover {
@@ -777,7 +864,6 @@ nav {
   background: var(--black);
   transform: translateY(-2px);
 }
-
 /* ============================= */
 /* HOME PAGE - WHY CHOOSE US     */
 /* ============================= */
@@ -1136,10 +1222,12 @@ nav {
   font-family: 'Poppins', sans-serif;
 }
 
+/* Improved Carousel Styles */
 .carousel {
   position: relative;
+  max-width: 1200px;
+  margin: 0 auto 30px;
   overflow: hidden;
-  margin-bottom: 30px;
 }
 
 .carousel-track {
@@ -1153,6 +1241,7 @@ nav {
   min-width: 250px;
   height: 200px;
   flex-shrink: 0;
+  flex-grow: 0;
 }
 
 .product-item img {
@@ -1162,6 +1251,30 @@ nav {
   display: block;
   transition: transform 0.5s ease, filter 0.5s ease;
   border-radius: 10px;
+}
+
+/* Ensure no blank space at the end */
+.carousel-track::after {
+  display: none;
+}
+
+/* Responsive carousel items */
+@media (max-width: 1024px) {
+  .product-item {
+    min-width: calc(33.333% - 14px);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-item {
+    min-width: calc(50% - 10px);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-item {
+    min-width: 100%;
+  }
 }
 
 .product-item:hover img {
@@ -1288,6 +1401,7 @@ nav {
   border: none;
   color: var(--white);
 }
+
 
 /* ============================= */
 /* ABOUT PAGE - HERO             */
