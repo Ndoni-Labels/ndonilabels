@@ -10,123 +10,178 @@
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo"><img src="./assets/Logo.jpg" alt="NDONI Logo"></div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+       
+<!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo"><img src="./assets/Logo.jpg" alt="NDONI Logo" style="height:50px;"></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="contact-hero">
+    <h2>Get Your Free Quote</h2>
+    <p>Tell us about your project and we'll provide a detailed quote within 24 hours</p>
+  </section>
+
+  <!-- Contact Content -->
+  <div class="contact-content">
+    <!-- Contact Details -->
+    <div class="contact-details-section">
+      <h3>Get In Touch</h3>
+      <div class="contact-details">
+        <div class="contact-item">
+          <i class="fa-solid fa-phone contact-icon"></i>
+          <div class="contact-item-content">
+            <h4>Phone</h4>
+            <p>(+27) 00 000 000</p>
+            <small>Mon-Fri 8:00AM - 17:00PM</small>
+          </div>
         </div>
-    </nav>
-    <!-- Contact Section -->
-    <section class="contact scroll-animate" id="contact">
+
+        <div class="contact-item">
+          <i class="fa-solid fa-envelope contact-icon"></i>
+          <div class="contact-item-content">
+            <h4>Email</h4>
+            <p>info@indonilabel.com</p>
+            <small>We respond within 4 hours</small>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fa-solid fa-clock contact-icon"></i>
+          <div class="contact-item-content">
+            <h4>Business Hours</h4>
+            <p>Monday - Friday: 8:00AM - 17:00PM</p>
+            <p>Saturday: 09:00AM - 14:00PM</p>
+            <p>Sunday: Closed</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form">
+      <h3>Request a Quote</h3>
+      <form id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <input type="text" placeholder="Full Name *" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Email Address *" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <input type="tel" placeholder="Phone Number">
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Organization/School">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <select required>
+              <option value="">Select project type *</option>
+              <option value="school">School Labels</option>
+              <option value="business">Business Labels</option>
+              <option value="custom">Custom Project</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <select>
+              <option value="">Select quantity range</option>
+              <option value="1-100">1 - 100 labels</option>
+              <option value="101-500">101 - 500 labels</option>
+              <option value="501-1000">501 - 1,000 labels</option>
+              <option value="1000+">1,000+ labels</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <select>
+            <option value="">When do you need this?</option>
+            <option value="asap">ASAP</option>
+            <option value="1-week">Within 1 week</option>
+            <option value="2-weeks">Within 2 weeks</option>
+            <option value="1-month">Within 1 month</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <textarea placeholder="Please describe your project, including any special requirements, colors, sizes, or design preferences. *" required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">
+          <i class="fa-solid fa-paper-plane"></i> Submit Quote Request
+        </button>
+
+        <p class="form-note">* Required fields. We'll respond within 24 hours with a detailed quote.</p>
+      </form>
+    </div>
+  </div>
+
+  
+  <!-- Footer -->
+    <footer>
         <div class="container">
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h2>Get Your Free Quote</h2>
-                    <p>Tell us about your project and we'll provide a detailed quote within 24 hours</p>
-                </div>
-
-                    <hr class="divider"> <!-- Divider line -->
-
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div style="font-size: 1.5rem;">📞</div>
-                            <div>
-                                <h4>Phone</h4>
-                                <p>(+27) 00 000 000</p>
-                                <small>Mon-Fri 8:00AM - 17:00PM</small>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div style="font-size: 1.5rem;">✉️</div>
-                            <div>
-                                <h4>Email</h4>
-                                <p>info@indonilabel.com</p>
-                                <small>We respond within 4 hours</small>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div style="font-size: 1.5rem;">📍</div>
-                            <div>
-                                <h4>Address</h4>
-                                <p>123 Business Ave</p>
-                                <p>Suite 100</p>
-                                <p>City, ST 12345</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div style="font-size: 1.5rem;">🕒</div>
-                            <div>
-                                <h4>Hours</h4>
-                                <p>Monday - Friday: 8:00AM - 17:00PM</p>
-                                <p>Saturday: 09:00 - 14:00PM</p>
-                                <p>Sunday: Closed</p>
-                            </div>
-                        </div>
+            <div class="footer-container">
+                <div class="footer-col logo-col">
+                    <img src="./assets/Logo.jpg" alt="Ndoni Labels Logo" class="footer-logo">
+                    <p>Quality labels and stickers for schools, businesses, and homes. Proudly serving South Africa with professional printing solutions.</p>
+                    <div class="footer-contact-info">
+                        <p><i class="fas fa-phone"></i> +27 67 601 6990</p>
+                        <p><i class="fas fa-envelope"></i> info@ndonilabels.co.za</p>
                     </div>
                 </div>
-                
-                <div class="contact-form">
-                    <h3 style="margin-bottom: 1.5rem;">Request a Quote</h3>
-                    <form id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="text" placeholder="Full Name" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" placeholder="Email Address" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="tel" placeholder="Phone Number">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" placeholder="Organization/School">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <select required>
-                                    <option value="">Select project type</option>
-                                    <option value="school">School Labels</option>
-                                    <option value="business">Business Labels</option>
-                                    <option value="custom">Custom Project</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <select>
-                                    <option value="">Select quantity range</option>
-                                    <option value="1-100">1 - 100 labels</option>
-                                    <option value="101-500">101 - 500 labels</option>
-                                    <option value="501-1000">501 - 1,000 labels</option>
-                                    <option value="1000+">1,000+ labels</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <select>
-                                <option value="">When do you need this?</option>
-                                <option value="asap">ASAP</option>
-                                <option value="1-week">Within 1 week</option>
-                                <option value="2-weeks">Within 2 weeks</option>
-                                <option value="1-month">Within 1 month</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Please describe your project, including any special requirements, color, sizes, or design preferences." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-secondary" style="width: 100%; font-size: 1.1rem;">📧 Submit Quote Request</button>
-                        <p style="font-size: 0.9rem; margin-top: 1rem; text-align: center;">* Required fields. We'll respond within 24 hours with a detailed quote.</p>
-                    </form>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Product Categories</h4>
+                    <ul>
+                        <li><a href="products.html#education">School Labels</a></li>
+                        <li><a href="products.html#business">Business Labels</a></li>
+                        <li><a href="products.html#stickers">Stickers & Awards</a></li>
+                        <li><a href="products.html#custom">Custom Solutions</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-tiktok"></i></a>
+                    </div>
                 </div>
             </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 Ndoni Labels. All rights reserved.</p>
+            </div>
         </div>
-    </section>
+    </footer>
+
+    
 </body>
 </html>
