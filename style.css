@@ -1438,6 +1438,7 @@ nav {
 .about {
   background-color: var(--white);
   padding: 80px 0;
+  overflow-x: hidden;
 }
 
 .about-content {
@@ -1469,7 +1470,7 @@ nav {
   background-color: rgba(22, 179, 40, 0.1);
   border-radius: 30px;
   padding: 40px 30px;
-  margin: 0;
+  margin: 28px;
 }
 
 .stats-title {
@@ -1483,7 +1484,7 @@ nav {
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   font-family: 'Prompt', sans-serif;
   font-weight: 600;
@@ -1514,6 +1515,56 @@ nav {
 .stat-label {
   font-size: 14px;
   font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .stats-section {
+    padding: 30px 20px;
+  }
+
+  .stats-title {
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .stat-item {
+    padding: 25px 15px;
+  }
+
+  .stat-number {
+    font-size: 28px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-section {
+    padding: 25px 15px;
+  }
+
+  .stats-title {
+    font-size: 18px;
+  }
+
+  .stat-item {
+    padding: 20px 10px;
+  }
+
+  .stat-number {
+    font-size: 24px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+  }
 }
 
 /* ============================= */
@@ -1552,8 +1603,16 @@ nav {
   left: 50%;
   width: 4px;
   background: #2e268f;
-  transform: translateX(-50%);
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: top;
   z-index: 1;
+  animation: drawLine 1.5s ease-out 0.5s forwards;
+}
+
+@keyframes drawLine {
+  to {
+    transform: translateX(-50%) scaleY(1);
+  }
 }
 
 .timeline::after {
@@ -1564,7 +1623,16 @@ nav {
   width: 16px;
   height: 16px;
   background: #2e268f;
-  transform: translateX(-50%) rotate(45deg);
+  transform: translateX(-50%) rotate(45deg) scale(0);
+  z-index: 2;
+  animation: fadeInScale 0.8s ease-out 0.3s forwards;
+}
+
+@keyframes fadeInScale {
+  to {
+    transform: translateX(-50%) rotate(45deg) scale(1);
+    opacity: 1;
+  }
 }
 
 .timeline-end {
@@ -1574,8 +1642,9 @@ nav {
   width: 16px;
   height: 16px;
   background: #2e268f;
-  transform: translateX(-50%) rotate(45deg);
+  transform: translateX(-50%) rotate(45deg) scale(0);
   z-index: 2;
+  animation: fadeInScale 0.8s ease-out 2s forwards;
 }
 
 .values-row {
@@ -1584,6 +1653,27 @@ nav {
   align-items: center;
   margin: 70px 0;
   position: relative;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.values-row:nth-child(1) {
+  animation-delay: 1s;
+}
+
+.values-row:nth-child(2) {
+  animation-delay: 1.5s;
+}
+
+.values-row:nth-child(3) {
+  animation-delay: 2s;
 }
 
 .value-card {
@@ -1594,6 +1684,44 @@ nav {
   border-radius: 10px;
   position: relative;
   z-index: 2;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.value-card.left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.value-card.right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+.values-row:nth-child(1) .value-card {
+  animation-delay: 1.2s;
+}
+
+.values-row:nth-child(2) .value-card {
+  animation-delay: 1.7s;
+}
+
+.values-row:nth-child(3) .value-card {
+  animation-delay: 2.2s;
 }
 
 .value-card h4 {
@@ -1618,8 +1746,16 @@ nav {
   height: 120px;
   background: white;
   border-radius: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) scale(0);
   z-index: 1;
+  transition: transform 0.3s ease;
+  animation: circleExpand 0.6s ease-out forwards;
+}
+
+@keyframes circleExpand {
+  to {
+    transform: translateY(-50%) scale(1);
+  }
 }
 
 .value-card.right::after {
@@ -1631,8 +1767,23 @@ nav {
   height: 120px;
   background: white;
   border-radius: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) scale(0);
   z-index: 1;
+  transition: transform 0.3s ease;
+  animation: circleExpand 0.6s ease-out forwards;
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.value-card.left:hover::after {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.value-card.right:hover::after {
+  transform: translateY(-50%) scale(1.1);
 }
 
 .center-dot {
@@ -1642,16 +1793,174 @@ nav {
   background: orange;
   border-radius: 50%;
   z-index: 3;
+  transition: transform 0.3s ease;
+  transform: scale(0);
+  animation: dotPulse 0.6s ease-out forwards;
+}
+
+@keyframes dotPulse {
+  50% {
+    transform: scale(1.3);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.values-row:nth-child(1) .center-dot {
+  animation-delay: 1.4s;
+}
+
+.values-row:nth-child(2) .center-dot {
+  animation-delay: 1.9s;
+}
+
+.values-row:nth-child(3) .center-dot {
+  animation-delay: 2.4s;
+}
+
+.center-dot:hover {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .values-section {
+    padding: 30px 15px;
+  }
+
+  .values-title {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+
+  .values-subtitle {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+
+  .timeline {
+    width: 95%;
+  }
+
+  .values-row {
+    flex-direction: column;
+    margin: 50px 0;
+    align-items: flex-start;
+  }
+
+  .value-card {
+    width: 100%;
+    padding: 25px 30px;
+    margin-bottom: 20px;
+  }
+
+  .value-card h4 {
+    font-size: 16px;
+  }
+
+  .value-card p {
+    font-size: 14px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .value-card.left::after,
+  .value-card.right::after {
+    display: none; /* Hide connecting circles on smaller screens */
+  }
+
+  .timeline::before {
+    left: 10px; /* Move timeline line to the left for stacked layout */
+    transform: none;
+    animation: drawLineMobile 1.5s ease-out 0.5s forwards;
+  }
+
+  @keyframes drawLineMobile {
+    to {
+      transform: scaleY(1);
+    }
+  }
+
+  .center-dot {
+    left: 10px;
+    margin-left: 0;
+    animation: dotPulse 0.6s ease-out forwards;
+  }
+
+  .timeline::after,
+  .timeline-end {
+    left: 10px;
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .values-section {
+    padding: 25px 10px;
+  }
+
+  .values-title {
+    font-size: 24px;
+  }
+
+  .values-subtitle {
+    font-size: 13px;
+    margin-bottom: 25px;
+  }
+
+  .values-row {
+    margin: 40px 0;
+  }
+
+  .value-card {
+    padding: 20px 20px;
+  }
+
+  .value-card h4 {
+    font-size: 15px;
+  }
+
+  .value-card p {
+    font-size: 13px;
+  }
+
+  .timeline {
+    width: 100%;
+  }
+
+  .timeline::before {
+    width: 3px;
+    left: 5px;
+  }
+
+  .center-dot {
+    width: 18px;
+    height: 18px;
+    left: 5px;
+  }
+
+  .timeline::after,
+  .timeline-end {
+    left: 5px;
+    width: 12px;
+    height: 12px;
+  }
 }
 
 /* ============================= */
 /* ABOUT PAGE - COMMITMENT       */
 /* ============================= */
 .commitment-section {
-  background-color: var(--dark-blue);
+  background-color: #0b0070fb;;
   color: var(--white);
   padding: 50px 0;
   margin-top: 50px;
+  width: 100vw; 
+  position: relative;
+  left: 50%; 
+  margin-left: -50vw; 
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .commitment-section h3 {
@@ -1678,7 +1987,7 @@ nav {
 }
 
 .commitment-card {
-  background-color: #d32f2f;
+  background-color: #c00303;
   padding: 35px 25px;
   border-radius: 12px;
   text-align: center;
