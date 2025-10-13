@@ -135,7 +135,9 @@
           <div class="review-grid">
             <div class="review-card">
               <div class="reviewer">
-                <div class="reviewer-avatar"></div>
+                <div class="reviewer-avatar">
+                  <img src="\assets\Reviews-Profiles\profile1.png" alt="Sarah Mbambo" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                </div>
                 <div>
                   <h4>Sarah Mbambo</h4>
                   <div class="stars">★★★★★</div>
@@ -146,7 +148,9 @@
             </div>
             <div class="review-card">
               <div class="reviewer">
-                <div class="reviewer-avatar"></div>
+                <div class="reviewer-avatar">
+                  <img src="\assets\Reviews-Profiles\profile2.png" alt="Kevin Naidoo" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                </div>
                 <div>
                   <h4>Kevin Naidoo</h4>
                   <div class="stars">★★★★★</div>
@@ -157,9 +161,11 @@
             </div>
             <div class="review-card">
               <div class="reviewer">
-                <div class="reviewer-avatar"></div>
+                <div class="reviewer-avatar">
+                  <img src="\assets\Reviews-Profiles\profile3.png" alt="Thabo Molapi" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                </div>
                 <div>
-                  <h4>Thabo Mol</h4>
+                  <h4>Thabo Molapi</h4>
                   <div class="stars">★★★★★</div>
                 </div>
               </div>
@@ -222,8 +228,41 @@
       </footer>
 
       <script>
-        
+        document.addEventListener('DOMContentLoaded', function () {
+          const observerOptions = {
+            threshold: 0.1, 
+            rootMargin: '0px 0px -50px 0px'
+          };
+
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                // For staggered effects on review cards
+                if (entry.target.classList.contains('review-grid')) {
+                  const cards = entry.target.querySelectorAll('.review-card');
+                  cards.forEach((card, index) => {
+                    setTimeout(() => {
+                      card.classList.add('animated');
+                    }, index * 200); 
+                  });
+                }
+
+                observer.unobserve(entry.target); 
+              }
+            });
+          }, observerOptions);
+
+          const title = document.querySelector('.reviews h2');
+          if (title) {
+            observer.observe(title);
+          }
+
+          const grid = document.querySelector('.review-grid');
+          if (grid) {
+            observer.observe(grid);
+          }
+        });
       </script>
 </body>
-
 </html>

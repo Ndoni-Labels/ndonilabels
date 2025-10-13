@@ -1866,11 +1866,11 @@ nav {
 
   .value-card.left::after,
   .value-card.right::after {
-    display: none; /* Hide connecting circles on smaller screens */
+    display: none; 
   }
 
   .timeline::before {
-    left: 10px; /* Move timeline line to the left for stacked layout */
+    left: 10px; 
     transform: none;
     animation: drawLineMobile 1.5s ease-out 0.5s forwards;
   }
@@ -2018,12 +2018,19 @@ nav {
 
 .reviews h2 {
   font-family: 'Prompt', sans-serif;
-  font-weight: 600;   
+  font-weight: 700;   
   font-size: 38px;
   color: var(--dark-blue);
   text-align: center;
   margin-bottom: 50px;
-  font-weight: 700;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reviews h2.animated {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .review-grid {
@@ -2038,11 +2045,19 @@ nav {
   padding: 25px;
   box-shadow: 0 8px 25px rgba(19, 188, 16, 0.285);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.review-card.animated {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .review-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .reviewer {
@@ -2059,11 +2074,8 @@ nav {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  flex-shrink: 0;
 }
-
-.avatar1 { background-image: url('assets/profile1.png'); }
-.avatar2 { background-image: url('assets/profile2.png'); }
-.avatar3 { background-image: url('assets/profile3.png'); }
 
 .reviewer h4 {
   font-size: 16px;
@@ -2082,6 +2094,72 @@ nav {
   font-size: 14px;
   color: #555;
   line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .reviews {
+    padding: 60px 20px;
+  }
+
+  .reviews h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  .review-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .review-card {
+    padding: 20px;
+  }
+
+  .reviewer-avatar {
+    width: 45px;
+    height: 45px;
+  }
+
+  .reviewer h4 {
+    font-size: 15px;
+  }
+
+  .stars {
+    font-size: 13px;
+  }
+
+  .review-card p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reviews {
+    padding: 40px 15px;
+  }
+
+  .reviews h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .review-card {
+    padding: 18px;
+  }
+
+  .reviewer-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .reviewer h4 {
+    font-size: 14px;
+  }
+
+  .review-card p {
+    font-size: 12px;
+  }
 }
 
 /* ============================= */
@@ -2214,8 +2292,8 @@ nav {
       width: 100%;
       max-width: 750px;
       box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-      margin-left: 60px; /* Physically moved to right */
-      align-self: flex-start; /* Perfect vertical alignment with contact items */
+      margin-left: 60px; 
+      align-self: flex-start;
     }
 
     .contact-form h3 {
@@ -2250,7 +2328,7 @@ nav {
     }
 
     .form-group textarea {
-      min-height: 100px; /* Reduced height */
+      min-height: 100px; 
       resize: vertical;
     }
 
