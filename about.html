@@ -99,82 +99,7 @@
           </div>
         </div>
       </section>
-
-      <!-- Commitment Section -->
-      <section class="commitment-section">
-        <div class="container">
-          <h3>Our Commitment</h3>
-          <p class="commitment-subtitle">At Ndoni, we're committed to being more than just your printing service. We're
-            your partners in <br>success, dedicated to helping your organization look professional and stay organized.
-          </p>
-          <div class="commitment-grid">
-            <div class="commitment-card">
-              <h4>Schools & Education</h4>
-              <p>We understand the unique needs of educational institutions and provide solutions that help teachers
-                stay organized and students feel engaged.</p>
-            </div>
-            <div class="commitment-card">
-              <h4>Small Businesses</h4>
-              <p>No order is too small for us, from startups to established businesses, we help you maintain a
-                professional image with high-quality
-                labeling solutions that grow with you.</p>
-            </div>
-            <div class="commitment-card">
-              <h4>Large Organizations</h4>
-              <p>We have the capacity and experience to handle large-scale projects while maintaining the personal
-                service of a boutique provider.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Reviews Section -->
-      <section class="reviews">
-        <div class="container">
-          <h2>Reviews & Ratings</h2>
-          <div class="review-grid">
-            <div class="review-card">
-              <div class="reviewer">
-                <div class="reviewer-avatar">
-                  <img src="\assets\Reviews-Profiles\profile1.png" alt="Sarah Mbambo" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
-                </div>
-                <div>
-                  <h4>Sarah Mbambo</h4>
-                  <div class="stars">★★★★★</div>
-                </div>
-              </div>
-              <p>"Excellent service and high-quality labels. The team was very responsive and delivered exactly what we
-                needed for our school. Highly recommended!"</p>
-            </div>
-            <div class="review-card">
-              <div class="reviewer">
-                <div class="reviewer-avatar">
-                  <img src="\assets\Reviews-Profiles\profile2.png" alt="Kevin Naidoo" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
-                </div>
-                <div>
-                  <h4>Kevin Naidoo</h4>
-                  <div class="stars">★★★★★</div>
-                </div>
-              </div>
-              <p>"Great prices and fast turnaround time. The labels are durable and look professional. We've been using
-                Indoni for over a year now."</p>
-            </div>
-            <div class="review-card">
-              <div class="reviewer">
-                <div class="reviewer-avatar">
-                  <img src="\assets\Reviews-Profiles\profile3.png" alt="Thabo Molapi" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
-                </div>
-                <div>
-                  <h4>Thabo Molapi</h4>
-                  <div class="stars">★★★★★</div>
-                </div>
-              </div>
-              <p>"Outstanding quality and customer service. The team went above and beyond to ensure our labels were
-                perfect. Will definitely use them again."</p>
-            </div>
-          </div>
-        </div>
-      </section>
+    </section>
 
       <!-- Footer -->
       <footer>
@@ -216,7 +141,7 @@
                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-tiktok"></i></a>
+                <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
               </div>
             </div>
           </div>
@@ -230,7 +155,7 @@
       <script>
         document.addEventListener('DOMContentLoaded', function () {
           const observerOptions = {
-            threshold: 0.1, 
+            threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
           };
 
@@ -244,11 +169,11 @@
                   cards.forEach((card, index) => {
                     setTimeout(() => {
                       card.classList.add('animated');
-                    }, index * 200); 
+                    }, index * 200);
                   });
                 }
 
-                observer.unobserve(entry.target); 
+                observer.unobserve(entry.target);
               }
             });
           }, observerOptions);
@@ -265,4 +190,5 @@
         });
       </script>
 </body>
+
 </html>
