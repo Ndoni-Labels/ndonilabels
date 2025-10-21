@@ -1571,16 +1571,17 @@ nav {
 /* ============================= */
 /* ABOUT PAGE - VALUES TIMELINE  */
 /* ============================= */
+/* === VALUES SECTION === */
 .values-section {
   text-align: center;
-  font-family: Prompt, sans-serif;
+  font-family: 'Prompt', sans-serif;
   padding: 40px 50px;
 }
 
 .values-title {
   font-size: 38px;
   margin-bottom: 10px;
-  color: var(--dark-blue);
+  color: var(--dark-blue, #0b0070);
   font-weight: 700;
 }
 
@@ -1590,6 +1591,7 @@ nav {
   color: #555;
 }
 
+/* === TIMELINE === */
 .timeline {
   position: relative;
   width: 80%;
@@ -1648,6 +1650,7 @@ nav {
   animation: fadeInScale 0.8s ease-out 2s forwards;
 }
 
+/* === VALUE ROWS === */
 .values-row {
   display: flex;
   justify-content: space-between;
@@ -1659,72 +1662,72 @@ nav {
 }
 
 @keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.values-row:nth-child(1) {
-  animation-delay: 1s;
-}
+.values-row:nth-child(1) { animation-delay: 1s; }
+.values-row:nth-child(2) { animation-delay: 1.5s; }
+.values-row:nth-child(3) { animation-delay: 2s; }
 
-.values-row:nth-child(2) {
-  animation-delay: 1.5s;
-}
-
-.values-row:nth-child(3) {
-  animation-delay: 2s;
-}
-
+/* === VALUE CARDS === */
 .value-card {
   background: #0b0070;
   color: white;
   padding: 30px 20px;
-  width: 50%;
+  width:48%; 
   border-radius: 10px;
   position: relative;
   z-index: 2;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  transform: translateY(0px);
   opacity: 0;
 }
 
+/* Moves cards further from the timeline */
 .value-card.left {
+  margin-right: 80px; 
   animation: slideInLeft 0.8s ease-out forwards;
 }
 
 .value-card.right {
+  margin-left: 80px; 
   animation: slideInRight 0.8s ease-out forwards;
 }
 
 @keyframes slideInLeft {
+  from {
+    transform: translateX(-60px);
+    opacity: 0;
+  }
   to {
-    transform: translateX(0) translateY(0);
+    transform: translateX(0);
     opacity: 1;
   }
 }
 
 @keyframes slideInRight {
+  from {
+    transform: translateX(60px);
+    opacity: 0;
+  }
   to {
-    transform: translateX(0) translateY(0);
+    transform: translateX(0);
     opacity: 1;
   }
 }
 
-.values-row:nth-child(1) .value-card {
-  animation-delay: 1.2s;
-}
+.values-row:nth-child(1) .value-card { animation-delay: 1.2s; }
+.values-row:nth-child(2) .value-card { animation-delay: 1.7s; }
+.values-row:nth-child(3) .value-card { animation-delay: 2.2s; }
 
-.values-row:nth-child(2) .value-card {
-  animation-delay: 1.7s;
-}
-
-.values-row:nth-child(3) .value-card {
-  animation-delay: 2.2s;
-}
-
+/* === CARD TEXT === */
 .value-card h4 {
   font-size: 18px;
   font-weight: bold;
@@ -1734,23 +1737,32 @@ nav {
 .value-card p {
   font-size: 15px;
   line-height: 1.6;
-  padding-left: 75px;
-  padding-right: 75px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
-.value-card.left::after {
+/* === CIRCLES NEXT TO CARDS === */
+.value-card.left::after,
+.value-card.right::after {
   content: "";
   position: absolute;
-  right: -40px;
   top: 50%;
   width: 120px;
   height: 120px;
   background: white;
-  border-radius: 50%;
+  border-radius: 60%;
   transform: translateY(-50%) scale(0);
   z-index: 1;
   transition: transform 0.3s ease;
   animation: circleExpand 0.6s ease-out forwards;
+}
+
+.value-card.left::after {
+  right: -80px; 
+}
+
+.value-card.right::after {
+  left: -80px; 
 }
 
 @keyframes circleExpand {
@@ -1759,34 +1771,17 @@ nav {
   }
 }
 
-.value-card.right::after {
-  content: "";
-  position: absolute;
-  left: -40px;
-  top: 50%;
-  width: 120px;
-  height: 120px;
-  background: white;
-  border-radius: 50%;
-  transform: translateY(-50%) scale(0);
-  z-index: 1;
-  transition: transform 0.3s ease;
-  animation: circleExpand 0.6s ease-out forwards;
-}
-
 .value-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-.value-card.left:hover::after {
-  transform: translateY(-50%) scale(1.1);
-}
-
+.value-card.left:hover::after,
 .value-card.right:hover::after {
   transform: translateY(-50%) scale(1.1);
 }
 
+/* === CENTER DOTS === */
 .center-dot {
   position: relative;
   width: 22px;
@@ -1800,30 +1795,19 @@ nav {
 }
 
 @keyframes dotPulse {
-  50% {
-    transform: scale(1.3);
-  }
-  to {
-    transform: scale(1);
-  }
+  50% { transform: scale(1.3); }
+  to { transform: scale(1); }
 }
 
-.values-row:nth-child(1) .center-dot {
-  animation-delay: 1.4s;
-}
-
-.values-row:nth-child(2) .center-dot {
-  animation-delay: 1.9s;
-}
-
-.values-row:nth-child(3) .center-dot {
-  animation-delay: 2.4s;
-}
+.values-row:nth-child(1) .center-dot { animation-delay: 1.4s; }
+.values-row:nth-child(2) .center-dot { animation-delay: 1.9s; }
+.values-row:nth-child(3) .center-dot { animation-delay: 2.4s; }
 
 .center-dot:hover {
   transform: scale(1.2);
 }
 
+/* === RESPONSIVE DESIGN === */
 @media (max-width: 768px) {
   .values-section {
     padding: 30px 15px;
@@ -1855,6 +1839,11 @@ nav {
     margin-bottom: 20px;
   }
 
+  .value-card.left,
+  .value-card.right {
+    margin: 0; /* reset spacing on mobile */
+  }
+
   .value-card h4 {
     font-size: 16px;
   }
@@ -1867,11 +1856,11 @@ nav {
 
   .value-card.left::after,
   .value-card.right::after {
-    display: none; 
+    display: none;
   }
 
   .timeline::before {
-    left: 10px; 
+    left: 10px;
     transform: none;
     animation: drawLineMobile 1.5s ease-out 0.5s forwards;
   }
