@@ -561,6 +561,30 @@ function init() {
     filterAndRenderProducts();
 }
 
+// Back to Top Functionality
+const backToTopBtn = document.createElement('button');
+backToTopBtn.className = 'back-to-top';
+backToTopBtn.innerHTML = '↑';
+backToTopBtn.setAttribute('aria-label', 'Back to top');
+document.body.appendChild(backToTopBtn);
+
+// Show/hide back to top button
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 300) {
+    backToTopBtn.classList.add('show');
+  } else {
+    backToTopBtn.classList.remove('show');
+  }
+});
+
+// Scroll to top when clicked
+backToTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
 // Start when DOM is loaded
 document.addEventListener('DOMContentLoaded', init);
 
