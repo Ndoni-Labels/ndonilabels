@@ -377,7 +377,7 @@ nav {
 .hero h1 {
   font-size: 48px;
   margin-bottom: 20px;
-  color: var(--black);
+  color: var(--dark-blue);
   position: relative;
   z-index: 1;
   font-family: 'Arial Black', 'Helvetica', sans-serif;
@@ -393,7 +393,7 @@ nav {
   font-weight: 300;
   font-size: 20px;
   line-height: 1.4;
-  color: #000000;
+  color: var(--dark-blue);
 }
 
 .hero p {
@@ -526,13 +526,13 @@ nav {
 .services .section-title h2 {
   font-size: 36px; 
   margin-bottom: 10px; 
-  color: var(--black);
+  color: var(--dark-blue);
   font-family: 'Poppins', sans-serif;
 }
 
 .services .section-title p {
   font-size: 16px;
-  color: var(--black);
+  color: var(--dark-blue);
   margin-bottom: 40px; 
 }
 
@@ -798,7 +798,7 @@ nav {
 .get-started h2 {
   font-size: 36px;
   margin-bottom: 20px;
-  color: var(--black);
+  color: var(--dark-blue);
   font-family: 'Poppins', sans-serif;
 }
 
@@ -806,7 +806,7 @@ nav {
   font-size: 18px;
   max-width: 700px;
   margin: 0 auto 40px;
-  color: var(--black);
+  color: var(--dark-blue);
 }
 
 .get-started-btns {
@@ -893,9 +893,9 @@ nav {
 .about-text h2 {
   font-size: 38px;
   margin-bottom: 10px;
-  color: var(--black);
+  color: var(--dark-blue);
   font-weight: 700;
-  font-family: 'Prompt', sans-serif;
+  font-family: ' 'Arial Black', 'Helvetica', sans-serif';
 }
 
 .about-text > p {
