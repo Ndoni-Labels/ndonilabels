@@ -271,6 +271,100 @@ nav {
   }
 }
 
+/* ==============================================
+   NAVBAR SCROLL EFFECTS
+   ============================================== */
+
+/* Base navbar styles */
+nav {
+  transition: all 0.4s ease-in-out;
+  padding: 1rem 0;
+}
+
+/* Logo transition */
+nav .logo img {
+  transition: all 0.4s ease-in-out;
+  opacity: 0.85;
+  max-height: 50px; /* Base size */
+}
+
+/* Hamburger transition */
+.hamburger {
+  transition: all 0.3s ease-in-out;
+}
+
+/* When scrolled down - navbar grows */
+nav.scrolled-down {
+  padding: 1.5rem 0;
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+nav.scrolled-down .logo img {
+  opacity: 1;
+  max-height: 65px; /* Larger logo when scrolled down */
+  filter: brightness(1.05) contrast(1.1);
+}
+
+/* When scrolled up - navbar shrinks */
+nav.scrolled-up {
+  padding: 0.7rem 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav.scrolled-up .logo img {
+  opacity: 0.85;
+  max-height: 45px; /* Smaller logo when scrolled up */
+}
+
+/* Hamburger menu open state - reduce size */
+.hamburger.active {
+  transform: scale(0.85);
+}
+
+.hamburger.active .hamburger-line {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Additional hamburger styling when nav is scrolled and open */
+nav.scrolled-down .hamburger.active {
+  transform: scale(0.8);
+}
+
+nav.scrolled-up .hamburger.active {
+  transform: scale(0.75);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  nav.scrolled-down {
+    padding: 1.2rem 0;
+  }
+  
+  nav.scrolled-down .logo img {
+    max-height: 55px;
+  }
+  
+  nav.scrolled-up {
+    padding: 0.5rem 0;
+  }
+  
+  nav.scrolled-up .logo img {
+    max-height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  nav.scrolled-down .logo img {
+    max-height: 50px;
+  }
+  
+  nav.scrolled-up .logo img {
+    max-height: 35px;
+  }
+}
+
 
 /* ============================= */
 /* BACK TO TOP BUTTON            */
