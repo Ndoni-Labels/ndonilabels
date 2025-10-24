@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - Ndoni Labels</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="/assets/Logo.jpg">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --blue: #0000FF;
+            --red: #cc0000;  
+            --dark-blue: #1e2061; 
+            --green: #00FF99;
+            --black: #000000;
+            --white: #FFFFFF;
+            --light-grey: #f4f4f9;
+            --dark-grey: #555555;
+        }
+
+        .faq-hero {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--dark-blue) 100%);
+            color: var(--white);
+            padding: 80px 20px 60px;
+            text-align: center;
+        }
+
+        .faq-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .faq-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .faq-section {
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-category {
+            margin-bottom: 40px;
+        }
+
+        .faq-category h2 {
+            color: var(--dark-blue);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--blue);
+        }
+
+        .faq-item {
+            background: var(--white);
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: var(--blue);
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--light-grey);
+            font-weight: 600;
+            color: var(--black);
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #e9ecef;
+        }
+
+        .faq-question i {
+            color: var(--blue);
+            transition: transform 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .faq-item.active .faq-question {
+            background: var(--blue);
+            color: var(--white);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+            color: var(--white);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 20px;
+            background: var(--white);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 20px;
+        }
+
+        .faq-answer p {
+            color: var(--dark-grey);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .faq-answer ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .faq-answer li {
+            margin-bottom: 8px;
+            color: var(--dark-grey);
+        }
+
+        .search-box {
+            max-width: 600px;
+            margin: 30px auto;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--blue);
+        }
+
+        .search-box i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--blue);
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .faq-hero h1 {
+                font-size: 2rem;
+            }
+
+            .faq-category h2 {
+                font-size: 1.5rem;
+            }
+
+            .faq-question {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo"><img src="./assets/Logo.png" alt="NDONI Logo"></div>
+
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="faq-hero">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <p>Find answers to common questions about our labels, ordering process, and services</p>
+        </div>
+    </section>
+
+    <!-- Search Box -->
+    <div class="search-box">
+        <input type="text" id="faqSearch" placeholder="Search for answers...">
+        <i class="fas fa-search"></i>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            
+            <!-- General Questions -->
+            <div class="faq-category">
+                <h2><i class="fas fa-info-circle"></i> General Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What types of labels do you offer?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer a wide range of labels including:</p>
+                        <ul>
+                            <li>School labels (name labels, book labels, classroom organization)</li>
+                            <li>Business labels (product labels, packaging, branding)</li>
+                            <li>Award stickers and graduation labels</li>
+                            <li>Household labels (kitchen, storage, organization)</li>
+                            <li>Custom labels for any purpose</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Are your labels waterproof and durable?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Our labels are made from high-quality, waterproof materials that are designed to last. They are:</p>
+                        <ul>
+                            <li>Waterproof and weatherproof</li>
+                            <li>Dishwasher safe (depending on the material selected)</li>
+                            <li>Fade-resistant with vibrant colors</li>
+                            <li>Durable enough for everyday use</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What makes Ndoni Labels different from other label companies?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We pride ourselves on offering premium quality labels with fast turnaround times and exceptional customer service. We use cutting-edge printing technology and high-quality materials to ensure your labels look professional and last long. Plus, we're a trusted partner for schools and businesses across South Africa.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ordering & Customization -->
+            <div class="faq-category">
+                <h2><i class="fas fa-shopping-cart"></i> Ordering & Customization</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I place an order?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Placing an order is easy! Simply:</p>
+                        <ul>
+                            <li>Browse our products page to see what we offer</li>
+                            <li>Contact us via phone, email, or our contact form</li>
+                            <li>Provide details about your label needs (size, quantity, design)</li>
+                            <li>We'll send you a quote and mockup for approval</li>
+                            <li>Once approved, we'll process your order and deliver to your doorstep</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I customize my labels?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We specialize in custom labels. You can customize:</p>
+                        <ul>
+                            <li>Size and shape</li>
+                            <li>Colors and design</li>
+                            <li>Text and fonts</li>
+                            <li>Images and logos</li>
+                            <li>Material type</li>
+                        </ul>
+                        <p>Our team will work with you to create the perfect label for your needs.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is the minimum order quantity?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our minimum order quantities vary depending on the type of label and customization. Contact us with your specific needs, and we'll do our best to accommodate orders of all sizes, from small personal orders to large bulk orders for businesses and schools.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you offer design services?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! If you need help designing your labels, our team can assist you. Whether you have a rough idea or need us to create something from scratch, we'll work with you to bring your vision to life. We'll provide mockups for your approval before printing.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shipping & Delivery -->
+            <div class="faq-category">
+                <h2><i class="fas fa-truck"></i> Shipping & Delivery</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How long does it take to receive my order?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our standard turnaround time is typically 5-7 business days after design approval. Delivery time depends on your location within South Africa. We also offer rush orders for urgent needs - contact us to discuss expedited options.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you ship nationwide?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We ship to all locations across South Africa. Shipping costs vary based on location and order size. We'll provide you with a shipping quote when you place your order.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I track my order?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Once your order ships, we'll provide you with tracking information so you can monitor your delivery in real-time.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing & Payment -->
+            <div class="faq-category">
+                <h2><i class="fas fa-credit-card"></i> Pricing & Payment</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How much do custom labels cost?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Pricing varies based on several factors including size, quantity, material, and customization level. Contact us with your requirements, and we'll provide a free, no-obligation quote. We offer competitive pricing and discounts for bulk orders.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What payment methods do you accept?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept various payment methods including bank transfers (EFT), credit/debit cards, and other secure payment options. Payment details will be provided with your quote.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you offer discounts for bulk orders?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We offer competitive pricing for bulk orders. Schools, businesses, and organizations ordering large quantities can benefit from our volume discounts. Contact us to discuss your needs and receive a customized quote.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- School Labels -->
+            <div class="faq-category">
+                <h2><i class="fas fa-graduation-cap"></i> School Labels</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Are your school labels safe for children?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! All our labels are made from non-toxic, child-safe materials. They meet safety standards and are suitable for use on children's items including lunch boxes, water bottles, books, and clothing.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can you create labels for an entire classroom or school?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We work with schools to create custom label solutions for classrooms, sports teams, and entire institutions. We can handle large orders with multiple names and designs. Contact us to discuss your school's needs.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Will the labels stay on lunch boxes and water bottles?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Our labels are specifically designed to adhere to various surfaces including plastic lunch boxes, water bottles, and thermoses. They're waterproof and dishwasher safe, so they'll stay put through daily use and cleaning.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Questions -->
+            <div class="faq-category">
+                <h2><i class="fas fa-cog"></i> Technical Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What file format should I use for custom designs?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept various file formats including:</p>
+                        <ul>
+                            <li>Vector files: AI, EPS, PDF (preferred for logos)</li>
+                            <li>High-resolution images: PNG, JPEG (at least 300 DPI)</li>
+                            <li>Design files: PSD, SVG</li>
+                        </ul>
+                        <p>If you're unsure about your file, send it to us and we'll let you know if it works or help you improve it.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I apply the labels?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Applying our labels is simple:</p>
+                        <ul>
+                            <li>Clean and dry the surface thoroughly</li>
+                            <li>Peel the label from the backing</li>
+                            <li>Place the label on the surface and press firmly</li>
+                            <li>Smooth out any air bubbles from the center outward</li>
+                            <li>Allow 24 hours for full adhesion before washing</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I remove and reuse the labels?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our labels are designed to be permanent and durable, so they're not meant to be removed and reused. However, they can be removed from most surfaces without leaving residue if needed. For reusable options, we offer removable label materials - let us know if this is what you need.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col logo-col">
+                    <img src="./assets/Logo.png" alt="Ndoni Labels Logo" class="footer-logo">
+                    <p>Quality labels and stickers for schools, businesses, and homes. Proudly serving South Africa with professional printing solutions.</p>
+                    <div class="footer-contact-info">
+                        <p><i class="fas fa-phone"></i> +27 67 601 6990</p>
+                        <p><i class="fas fa-envelope"></i> info@ndonilabels.co.za /orders@ndonilabels.co.za</p>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="/assets/Ndoni-Labels-Catalogue.pdf" download="Ndoni-Labels-Catalogue.pdf"></i> Products Catalogue</a></li>
+                        <li><a href="faq.html"></i>Website FAQs</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/1BRNxpbyKv/ " aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/ndoni_labels?igsh=Zzg5OGZwbWo2ZDhj" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@ndoni.labels?_t=ZS-90KYYYhvg99&_r=1 " aria-label="TikTok" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 Ndoni Labels. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="nav.js"></script>
+    <script>
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('faqSearch');
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    if (searchTerm.length > 0) {
+                        item.classList.add('active');
+                    }
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            // Show/hide category headers
+            document.querySelectorAll('.faq-category').forEach(category => {
+                const visibleItems = category.querySelectorAll('.faq-item[style*="display: block"]').length;
+                const allItems = category.querySelectorAll('.faq-item[style*="display: none"]').length;
+                
+                if (searchTerm.length > 0 && visibleItems === 0) {
+                    category.style.display = 'none';
+                } else {
+                    category.style.display = 'block';
+                }
+            });
+        });
+
+        // Back to Top Functionality
+const backToTopBtn = document.createElement('button');
+backToTopBtn.className = 'back-to-top';
+backToTopBtn.innerHTML = '↑';
+backToTopBtn.setAttribute('aria-label', 'Back to top');
+document.body.appendChild(backToTopBtn);
+
+// Show/hide back to top button
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 300) {
+    backToTopBtn.classList.add('show');
+  } else {
+    backToTopBtn.classList.remove('show');
+  }
+});
+
+// Scroll to top when clicked
+backToTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+    </script>
+</body>
+</html>
