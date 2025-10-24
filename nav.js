@@ -1,4 +1,4 @@
-// This file handles the hamburger menu functionality across all pages
+// This file handles the hamburger menu functionality and scroll effects across all pages
 (function() {
   'use strict';
   
@@ -9,12 +9,17 @@
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
     const nav = document.querySelector('nav');
+    const logo = document.querySelector('.logo img');
     
     // Check if elements exist
     if (!hamburger || !navLinks) {
       console.warn('Navigation elements not found');
       return;
     }
+    
+    // Scroll state variables
+    let lastScrollPosition = 0;
+    let ticking = false;
     
     // Toggle menu function
     function toggleMenu() {
@@ -34,11 +39,46 @@
       document.body.style.overflow = '';
     }
     
+    // Scroll effect function
+    function handleScroll() {
+      const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      
+      if (currentScrollPosition > lastScrollPosition && currentScrollPosition > 50) {
+        // Scrolling down
+        nav.classList.add('scrolled-down');
+        nav.classList.remove('scrolled-up');
+      } else if (currentScrollPosition < lastScrollPosition) {
+        // Scrolling up
+        nav.classList.add('scrolled-up');
+        nav.classList.remove('scrolled-down');
+      }
+      
+      // Remove classes when at top
+      if (currentScrollPosition <= 50) {
+        nav.classList.remove('scrolled-down', 'scrolled-up');
+      }
+      
+      lastScrollPosition = currentScrollPosition;
+      ticking = false;
+    }
+    
+    // Request animation frame for smooth scroll handling
+    function requestScrollTick() {
+      if (!ticking) {
+        window.requestAnimationFrame(handleScroll);
+        ticking = true;
+      }
+    }
+    
+    // Scroll event listener with throttling
+    window.addEventListener('scroll', requestScrollTick, { passive: true });
+    
     // Hamburger click event
     hamburger.addEventListener('click', function(e) {
       e.stopPropagation();
       toggleMenu();
     });
+    
     // Close menu when clicking on navigation links
     const links = navLinks.querySelectorAll('a');
     links.forEach(link => {
@@ -47,13 +87,12 @@
       });
     });
     
-   // Close menu when clicking outside navigation
-document.addEventListener('click', function(e) {
-  if (nav && !nav.contains(e.target) && navLinks.classList.contains('active')) {
-    closeMenu();
-  }
-});
-
+    // Close menu when clicking outside navigation
+    document.addEventListener('click', function(e) {
+      if (nav && !nav.contains(e.target) && navLinks.classList.contains('active')) {
+        closeMenu();
+      }
+    });
     
     // Prevent clicks inside nav from closing menu
     if (nav) {
@@ -81,6 +120,5 @@ document.addEventListener('click', function(e) {
     });
     
   });
-
   
 })();
